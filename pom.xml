@@ -109,4 +109,15 @@
         </dependency>
 
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>Internal Releases</name>
+            <!--suppress UnresolvedMavenProperty -->
+            <url>http://10.254.144.164:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+
 </project>
