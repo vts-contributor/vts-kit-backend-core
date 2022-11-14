@@ -75,7 +75,7 @@ ResponseEntity<Object> result = new RestTemplateBuilder()
                                 })
                                 .build().doRequestRestTemplate(url, HttpMethod.POST, null, token, null);
 ```
-You can set your custom proxy, custom error handler and other stuffs while building your own RestTemplate. For more information, you can check it out in [RestTemplateBuilder](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/rest/RestTemplateBuilder.java) and [RestTemplateUtils](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/utils/RestTemplateUtils.java).
+You can set your custom proxy, custom error handler and other stuffs while building your own RestTemplate. For more information, you can check it out in [RestTemplateBuilder](src/main/java/vn/com/viettel/core/rest/RestTemplateBuilder.java) and [RestTemplateUtils](src/main/java/vn/com/viettel/core/utils/RestTemplateUtils.java).
 
 ### SoapAPI
 
@@ -126,7 +126,7 @@ soapPassword.addTextNode(soapMessageDTO.getPassword());
 soapMessage.saveChanges();
 return soapMessage;
 ```
-For more detail, you can see example in [SoapMessageUtils](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/utils/SoapMessageUtils.java) about building your own **SOAPMessage**. 
+For more detail, you can see example in [SoapMessageUtils](src/main/java/vn/com/viettel/core/utils/SoapMessageUtils.java) about building your own **SOAPMessage**. 
 
 **Step 2:** Using the method below to send your **SOAPMessage**:
 ```java
