@@ -4,9 +4,9 @@ This library provides utilities that make it easy to work with Spring Boot proje
 
 ### Feature List
 
-- [Validation](#Validation).
-- [RestfulAPI](#RestfulAPI).
-- [SoapAPI](#SoapAPI).
+- [Validation](#Validation)
+- [RestfulAPI](#RestfulAPI)
+- [SoapAPI](#SoapAPI)
 
 ## Usage
 
