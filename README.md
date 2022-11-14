@@ -8,10 +8,6 @@ This library provides utilities that make it easy to work with Spring Boot proje
 - [RestfulAPI](#RestfulAPI).
 - [SoapAPI](#SoapAPI).
 
-### Output type supported
-
-- **Console (Default)**.
-
 ## Usage
 
 ### Validation
