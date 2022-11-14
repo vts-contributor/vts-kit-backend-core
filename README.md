@@ -4,9 +4,9 @@ This library provides utilities that make it easy to work with Spring Boot proje
 
 ### Feature List
 
-- **Validation**.
-- **RestTemplate (included error handler for RestTemplate)**.
-- **SoapXML**.
+- [Validation](#Validation).
+- [Restful API](#Restful API).
+- [Soap API](#Soap API).
 
 ### Output type supported
 
@@ -17,7 +17,7 @@ This library provides utilities that make it easy to work with Spring Boot proje
 ### Validation
 
 By default, we provide some validation method beside using validate with annotation for your specific use cases.
-```
+```java
 public static void isNullOrEmpty(String value, String msgCode) {
         String message = msgCode == null ? "Trường không được trống" : I18n.getMessage(msgCode);
         if(StringUtils.isNullOrEmpty(value)) throw new ValidateException(message);
@@ -47,21 +47,23 @@ public static void isTrim(String value, String msgCode) {
 }
 ```
 To use our method, just add below line of code to your file:
-```
+```java
 ValidatorUtils.isEmail("tri@gmail.com", null);
 ValidatorUtils.isNumber("123", null);
 ```
 We also support internationalization, so if you want to modify your own error message, just add your message code like this:
-```
+```java
 ValidatorUtils.isEmail("tri@gmail.com", "msg.email.valid");
 ValidatorUtils.isNumber("123", "msg.number.valid");
 ```
 In contrary, you can leave null like the above code and use our default error message.
 
-### RestTemplate
+### Restful API
+
+We choose RestTemplate for handling Restful API.
 
 We use Builder Pattern for RestTemplate, below is an example of using RestTemplateBuilder:
-```
+```java
 ResponseEntity<Object> result = new RestTemplateBuilder()
                                 .setConnectTimeOut(3000)
                                 .setReadTimeOut(2000)
@@ -77,14 +79,14 @@ ResponseEntity<Object> result = new RestTemplateBuilder()
                                 })
                                 .build().doRequestRestTemplate(url, HttpMethod.POST, null, token, null);
 ```
-You can set your custom proxy, custom error handler and other stuffs while building your own RestTemplate. For more information, you can check it out in **RestTemplateBuilder.java** and **RestTemplateUtils.java**.
+You can set your custom proxy, custom error handler and other stuffs while building your own RestTemplate. For more information, you can check it out in [RestTemplateBuilder](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/rest/RestTemplateBuilder.java) and [RestTemplateUtils](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/utils/RestTemplateUtils.java).
 
-### SoapXML
+### Soap API
 
 To send your soap request, please follow the steps below:
 
 **Step 1:** Converting your **Soap Request** to **SoapMessage**.
-```
+```java
 String request = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:impl=\"http://impl.bulkSms.ws/\">"
 			+ "<soapenv:Header/>"
 			+ "<soapenv:Body>"
@@ -105,7 +107,7 @@ String request = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/s
 SOAPMessage mess = SoapMessageUtils.parseStringToSOAPMessage(request);
 ```
 You can also build your own **SOAPMessage** manually like this:
-```
+```java
 SoapMessageDTO soapMessageDTO = new SoapMessageDTO("vdtc", "$18ac#75%@", "VDTC", "VTSHOP", "84981651642", "Test 4sms 123", "0");
 MessageFactory messageFactory = MessageFactory.newInstance();
 SOAPMessage soapMessage = messageFactory.createMessage();
@@ -131,11 +133,11 @@ return soapMessage;
 For more detail, you can see example in **SoapMessageUtils.java** about building your own **SOAPMessage**. 
 
 **Step 2:** Using the method below to send your **SOAPMessage**:
-```
+```java
 SOAPMessage soapResponse = SoapServiceUtils.callWebService(mess, "http://ams.tinnhanthuonghieu.vn:8009/bulkapi?wsdl");
 ```
 If you want to print your soapResponse or soapRequest, please add the following code:
-```
+```java
 SoapServiceUtils.printSOAPMessage(soapMessage);
 ```
 
