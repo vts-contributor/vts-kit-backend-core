@@ -130,7 +130,7 @@ soapPassword.addTextNode(soapMessageDTO.getPassword());
 soapMessage.saveChanges();
 return soapMessage;
 ```
-For more detail, you can see example in **SoapMessageUtils.java** about building your own **SOAPMessage**. 
+For more detail, you can see example in [SoapMessageUtils](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/utils/SoapMessageUtils.java) about building your own **SOAPMessage**. 
 
 **Step 2:** Using the method below to send your **SOAPMessage**:
 ```java
@@ -157,3 +157,11 @@ mvn clean install
 ### Contribute Guidelines
 
 If you have any ideas, just open an issue and tell us what you think.
+
+If you'd like to contribute, please refer [Contributors Guide](CONTRIBUTING.md).
+
+## License
+
+This code is under the [MIT License](https://opensource.org/licenses/MIT).
+
+See the [LICENSE](LICENSE) file for required notices and attributions.
