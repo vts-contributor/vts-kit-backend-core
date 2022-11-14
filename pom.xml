@@ -20,9 +20,9 @@
         <version>2.7.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>vn.com.viettel.core</groupId>
+    <groupId>com.atviettelsolutions</groupId>
     <artifactId>vts-kit-backend-core</artifactId>
-    <version>1.0-RELEASE</version>
+    <version>1.0.0</version>
     <name>vts-kit-backend-core</name>
     <description>vts-kit-backend-core</description>
     <properties>
@@ -30,18 +30,15 @@
         <springfox.version>3.0.0</springfox.version>
     </properties>
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-oxm</artifactId>
-            <version>5.3.23</version>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -138,10 +135,6 @@
             <artifactId>javassist</artifactId>
             <version>3.25.0-GA</version>
         </dependency>
-
-
-
-
     </dependencies>
 
     <distributionManagement>
@@ -149,7 +142,7 @@
             <id>maven-releases</id>
             <name>Internal Releases</name>
             <!--suppress UnresolvedMavenProperty -->
-            <url>http://10.254.144.164:8081/repository/maven-releases/</url>
+            <url>${env.NEXUS_REPO_RELEASE}</url>
         </repository>
     </distributionManagement>
 
