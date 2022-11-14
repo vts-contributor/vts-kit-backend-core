@@ -16,23 +16,13 @@ public class SoapServiceUtils {
 	}
 
 	/**
-	 * Method used to print the SOAP Response
+	 * Method used to print the SOAP Message
 	 */
-	public static void printSOAPMessageRequest(SOAPMessage soapMessageRequest) throws Exception
-	{
-		System.out.println("\nRequest SOAP Message = ");
-		soapMessageRequest.writeTo(System.out);
-		System.out.println();
-	}
-
-	/**
-	 * Method used to print the SOAP Response
-	 */
-	public static void printSOAPMessageResponse(SOAPMessage soapResponse) throws Exception
+	public static void printSOAPMessage(SOAPMessage soapMessage) throws Exception
 	{
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
-		Source sourceContent = soapResponse.getSOAPPart().getContent();
+		Source sourceContent = soapMessage.getSOAPPart().getContent();
 		System.out.println("\nResponse SOAP Message = ");
 		StreamResult result = new StreamResult(System.out);
 		transformer.transform(sourceContent, result);
@@ -43,7 +33,7 @@ public class SoapServiceUtils {
 	 */
 	public static SOAPMessage callWebService(SOAPMessage mess,String urlWebService) throws Exception
 	{
-		printSOAPMessageResponse(mess);
+		printSOAPMessage(mess);
 		// Create SOAP Connection
 		SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
 		SOAPConnection soapConnection = soapConnectionFactory.createConnection();
