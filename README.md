@@ -5,7 +5,8 @@ This library provides utilities that make it easy to work with Spring Boot proje
 ### Feature List
 
 - [Validation](#Validation).
-- [Restful API](#Restful API).
+- [RestfulAPI](#RestfulAPI).
+- [SoapAPI](#SoapAPI).
 
 ### Output type supported
 
@@ -57,7 +58,7 @@ ValidatorUtils.isNumber("123", "msg.number.valid");
 ```
 In contrary, you can leave null like the above code and use our default error message.
 
-### Restful API
+### RestfulAPI
 
 We choose RestTemplate for handling Restful API.
 
@@ -80,7 +81,7 @@ ResponseEntity<Object> result = new RestTemplateBuilder()
 ```
 You can set your custom proxy, custom error handler and other stuffs while building your own RestTemplate. For more information, you can check it out in [RestTemplateBuilder](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/rest/RestTemplateBuilder.java) and [RestTemplateUtils](https://github.com/vts-contributor/vts-kit-backend-core/blob/develop/src/main/java/vn/com/viettel/core/utils/RestTemplateUtils.java).
 
-### Soap API
+### SoapAPI
 
 To send your soap request, please follow the steps below:
 
