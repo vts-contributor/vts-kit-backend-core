@@ -1,7 +1,6 @@
 package vn.com.viettel.core.utils;
 
 import org.w3c.dom.Document;
-import vn.com.viettel.core.rest.SoapMessageDTO;
 
 import javax.xml.soap.SOAPConnection;
 import javax.xml.soap.SOAPConnectionFactory;
