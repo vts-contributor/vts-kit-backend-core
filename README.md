@@ -6,7 +6,6 @@ This library provides utilities that make it easy to work with Spring Boot proje
 
 - [Validation](#Validation).
 - [Restful API](#Restful API).
-- [Soap API](#Soap API).
 
 ### Output type supported
 
