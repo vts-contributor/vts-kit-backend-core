@@ -48,7 +48,7 @@ public class ValidatorUtils {
      */
     static boolean isVTEmail(final String str)
     {
-        return str == null || str.isEmpty() || str.matches(VIETTEL_PREFIX);
+        return str != null && !str.isEmpty() && str.matches(VIETTEL_PREFIX);
     }
 
 }
