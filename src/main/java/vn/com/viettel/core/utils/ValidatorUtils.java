@@ -6,6 +6,7 @@ import vn.com.viettel.core.exception.ValidateException;
 import java.util.regex.Pattern;
 
 public class ValidatorUtils {
+    private static final String VIETTEL_PREFIX = "^\\w+([\\.-]?\\w+)*@viettel.com.vn+$";
 
     public static void isNullOrEmpty(String value, String msgCode) {
         String message = msgCode == null ? "Trường không được trống" : I18n.getMessage(msgCode);
@@ -34,4 +35,20 @@ public class ValidatorUtils {
         String message = msgCode == null ? "Trường không được có ký tự trắng" : I18n.getMessage(msgCode);
         if(value.indexOf(" ") != -1) throw new ValidateException(message);
     }
+
+
+    /**
+     * Checks if an Email is Viettel Email.
+     *
+     * @param str the String to check, may be null
+     *
+     * @return {@code true} if the String is Viettel email
+     *
+     * @since Commons Lang v2.1, svn 240418
+     */
+    static boolean isVTEmail(final String str)
+    {
+        return str == null || str.isEmpty() || str.matches(VIETTEL_PREFIX);
+    }
+
 }
