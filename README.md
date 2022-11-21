@@ -7,6 +7,7 @@ This library provides utilities that make it easy to work with Spring Boot proje
 - [Validation](#Validation)
 - [RestfulAPI](#RestfulAPI)
 - [SoapAPI](#SoapAPI)
+- [CommonUtils](#CommonUtils)
 
 ## Usage
 
@@ -136,6 +137,13 @@ If you want to print your soapResponse or soapRequest, please add the following 
 ```java
 SoapServiceUtils.printSOAPMessage(soapMessage);
 ```
+
+### CommonUtils
+- By default, we provide some utils common class: Date Utils, String Utils, Number Utils, File Utils.     
+  - Date Utils: Provides methods that are used to support date-related processing. you can check it out in [DateUtils](src/main/java/vn/com/viettel/core/utils/DateUtils.java)
+  - File Utils: Provides methods used to process files. You can see details at [FileUtils](src/main/java/vn/com/viettel/core/utils/FileUtils.java)
+  - Number Utils: Provides a method used to format numbers. You can see details at [FileUtils](src/main/java/vn/com/viettel/core/utils/NumberUtils.java)
+  - String Utils: Provides methods used to process string type. You can see details at [StringUtils](src/main/java/vn/com/viettel/core/utils/StringUtils.java)
 
 ## Contribute
 
