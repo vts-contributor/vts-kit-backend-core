@@ -12,7 +12,7 @@ public class AppConfig {
     @Bean(name = "messageSource")
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        source.setBasenames("messages", "language");
+        source.setBasenames("message", "language");
         source.setDefaultEncoding("UTF-8");
         source.setUseCodeAsDefaultMessage(true);
         return source;
