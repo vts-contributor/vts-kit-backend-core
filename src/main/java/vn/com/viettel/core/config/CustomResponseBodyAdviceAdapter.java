@@ -1,5 +1,6 @@
 package vn.com.viettel.core.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -14,10 +15,10 @@ import vn.com.viettel.core.log.LoggingService;
 
 
 @ControllerAdvice
+@RequiredArgsConstructor
 public class CustomResponseBodyAdviceAdapter implements ResponseBodyAdvice<Object> {
 
-    @Autowired
-    LoggingService loggingService;
+    private final LoggingService loggingService;
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
