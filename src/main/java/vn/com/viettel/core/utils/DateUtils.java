@@ -1,6 +1,7 @@
 package vn.com.viettel.core.utils;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.MessageFormat;
@@ -11,7 +12,7 @@ import java.util.*;
 
 public class DateUtils {
 
-    private static final Logger LOGGER = Logger.getLogger(DateUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DateUtils.class);
 
     public static final String DATE_FORMAT_PROBLEM = "HH:mm dd/MM/yyyy";
     public static final String DATE_FORMAT_PROBLEM2 = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -89,7 +90,7 @@ public class DateUtils {
         try {
             dateString = MessageFormat.format("{0,date," + format + "}", params);
         } catch (Exception e) {
-            LOGGER.error(e);
+            LOGGER.error(e.getMessage(), e);
             return "";
         }
         return dateString;
@@ -222,7 +223,7 @@ public class DateUtils {
         try {
             return sdf.parse(str);
         } catch (ParseException e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -241,7 +242,7 @@ public class DateUtils {
             hour = f.format(date);
             return Integer.parseInt(hour);
         } catch (Exception e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
             return -1;
         }
     }
@@ -259,7 +260,7 @@ public class DateUtils {
             minute = f.format(date);
             return Integer.parseInt(minute);
         } catch (Exception e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
             return -1;
         }
     }
@@ -275,7 +276,7 @@ public class DateUtils {
         try {
             return f.format(date).toUpperCase();
         } catch (Exception e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
             return "";
         }
     }
@@ -293,7 +294,7 @@ public class DateUtils {
             month = f.format(date);
             return Integer.parseInt(month);
         } catch (Exception e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
             return -1;
         }
     }
@@ -311,7 +312,7 @@ public class DateUtils {
             year = f.format(date);
             return Integer.parseInt(year);
         } catch (Exception e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
             return -1;
         }
     }
@@ -498,7 +499,7 @@ public class DateUtils {
         try {
             c.setTime(sdf.parse(strToDate));
         } catch (ParseException e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
         }
         c.add(Calendar.DATE, 1); // number of days to add
         String output = sdf.format(c.getTime()); // dt is now the new date
@@ -513,7 +514,7 @@ public class DateUtils {
         try {
             c.setTime(sdf.parse(strToDate));
         } catch (ParseException e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
         }
         c.add(Calendar.MINUTE, 1);  // number of days to add
         String output = sdf.format(c.getTime());  // dt is now the new date
@@ -704,7 +705,7 @@ public class DateUtils {
         try {
             dateStr = new SimpleDateFormat("MM/yyyy").format(date);
         } catch (Exception e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
         }
         return dateStr;
     }
@@ -778,7 +779,7 @@ public class DateUtils {
             Date date = new Date(unixTime * 1000L);
             return date;
         } catch (Exception e) {
-            LOGGER.error(e);
+           LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -805,7 +806,7 @@ public class DateUtils {
         try {
             return sdf.parse(str);
         } catch (ParseException e) {
-            LOGGER.error(e);
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -836,7 +837,7 @@ public class DateUtils {
             try {
                 return dateFormat.parse(date);
             } catch (ParseException ex) {
-                LOGGER.error(ex);
+                LOGGER.error(ex.getMessage());
                 return null;
             }
         }
