@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 import javax.xml.soap.*;
 
-import vn.com.viettel.core.rest.SoapMessageDTO;
+import vn.com.viettel.core.dto.request.SoapMessageDTO;
 
 
 public class SoapMessageUtils {
@@ -13,31 +13,12 @@ public class SoapMessageUtils {
     // Get example soap message
     private SOAPMessage getSOAPMessageExample() throws Exception {
 
-        SoapMessageDTO soapMessageDTO = new SoapMessageDTO("vdtc", "$18ac#75%@", "VDTC", "VTSHOP", "84981651642", "Test 4sms 123", "0");
+        SoapMessageDTO soapMessageDTO = new SoapMessageDTO("A", "B", "C", "D", "E", "F", "0");
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
         SOAPPart soapPart = soapMessage.getSOAPPart();
-         
- /*        	Request:
-        	 "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:impl=\"http://impl.bulkSms.ws/\">"
-                + "<soapenv:Header/>"
-                + "<soapenv:Body>"
-                + "<impl:wsCpMt>"
-                + "<User>" + username + "</User>"
-                + "<Password>" + password + "</Password>"
-                + "<CPCode>" + cpCode + "</CPCode>"
-                + "<RequestID>" + "1" + "</RequestID>"
-                + "<UserID>" + receiver + "</UserID>"
-                + "<ReceiverID>" + receiver + "</ReceiverID>"
-                + "<ServiceID>" + sender + "</ServiceID>"
-                + "<CommandCode>" + "bulksms" + "</CommandCode>"
-                + "<Content>" + content + "</Content>"
-                + "<ContentType>" + contentType + "</ContentType>"
-                + "</impl:wsCpMt>"
-                + "</soapenv:Body>"
-                + "</soapenv:Envelope>"; */
 
-         // SOAP Envelope
+        // SOAP Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
         envelope.addNamespaceDeclaration("impl", "http://impl.bulkSms.ws/");
 

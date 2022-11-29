@@ -1,5 +1,6 @@
 package vn.com.viettel.core.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -12,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class LogInterceptor implements HandlerInterceptor {
+@RequiredArgsConstructor
+public class CustomInterceptor implements HandlerInterceptor {
 
-    @Autowired
-    LoggingService loggingService;
+    private final LoggingService loggingService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {

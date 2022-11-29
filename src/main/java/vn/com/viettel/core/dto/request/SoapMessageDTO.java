@@ -1,4 +1,4 @@
-package vn.com.viettel.core.rest;
+package vn.com.viettel.core.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
