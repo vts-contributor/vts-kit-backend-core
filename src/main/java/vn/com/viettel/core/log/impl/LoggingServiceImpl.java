@@ -39,8 +39,8 @@ public class LoggingServiceImpl implements LoggingService {
     @Value("${app.system.code:N/A}")
     String systemCode;
 
-    @Value("${logs.tracing-logs.enabled:true}")
-    Boolean tracingLogEnabled;
+    @Value("${logs.kpi-logs.enabled:true}")
+    Boolean kpiLogEnabled;
 
     private static final String IP_PORT_SERVICE = getIpAddressAndPort_q();
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggingServiceImpl.class);
@@ -50,7 +50,7 @@ public class LoggingServiceImpl implements LoggingService {
 
     @Override
     public void logRequest(HttpServletRequest httpServletRequest, Object body) {
-        if (!tracingLogEnabled) {
+        if (!kpiLogEnabled) {
             return;
         }
 
@@ -207,7 +207,7 @@ public class LoggingServiceImpl implements LoggingService {
 
     @Override
     public void logResponse(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object body) {
-        if (!tracingLogEnabled) {
+        if (!kpiLogEnabled) {
             return;
         }
 
