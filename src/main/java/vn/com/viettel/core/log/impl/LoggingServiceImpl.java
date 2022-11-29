@@ -30,14 +30,14 @@ import java.util.*;
 @Component
 public class LoggingServiceImpl implements LoggingService {
 
-    @Value("${logs.application-code:N/A}")
-    String appCode;
+    @Value("${app.code:N/A}")
+    String code;
 
-    @Value("${logs.service-code:N/A}")
-    String appServiceCode;
+    @Value("${app.service.code:N/A}")
+    String serviceCode;
 
-    @Value("${logs.system-code:N/A}")
-    String appSystemCode;
+    @Value("${app.system.code:N/A}")
+    String systemCode;
 
     @Value("${logs.tracing-logs.enabled:true}")
     Boolean tracingLogEnabled;
@@ -70,10 +70,10 @@ public class LoggingServiceImpl implements LoggingService {
         strLogs.append(httpServletRequest.getRequestURI()).append("(").append(httpServletRequest.getMethod()).append(")|");
 
         // Application Code
-        strLogs.append(appCode).append("|");
+        strLogs.append(code).append("|");
 
         // Service Code
-        strLogs.append(appServiceCode).append("|");
+        strLogs.append(serviceCode).append("|");
 
         // Thread ID
         strLogs.append(Thread.currentThread().getId()).append("|");
@@ -185,7 +185,7 @@ public class LoggingServiceImpl implements LoggingService {
         strLogs.append("|");
 
         // System
-        strLogs.append(appSystemCode).append("|");
+        strLogs.append(systemCode).append("|");
 
         // Action Type
         strLogs.append(getActionTypeByMethod(httpServletRequest.getMethod())).append("|");
@@ -223,10 +223,10 @@ public class LoggingServiceImpl implements LoggingService {
         strLogs.append(httpServletRequest.getRequestURI()).append("(").append(httpServletRequest.getMethod()).append(")|");
 
         // Application Code
-        strLogs.append(appCode).append("|");
+        strLogs.append(code).append("|");
 
         // Service Code
-        strLogs.append(appServiceCode).append("|");
+        strLogs.append(serviceCode).append("|");
 
         // Thread ID
         strLogs.append(Thread.currentThread().getId()).append("|");
@@ -369,7 +369,7 @@ public class LoggingServiceImpl implements LoggingService {
         strLogs.append("|");
 
         // System
-        strLogs.append(appSystemCode).append("|");
+        strLogs.append(systemCode).append("|");
 
         // Action Type
         strLogs.append(getActionTypeByMethod(httpServletRequest.getMethod())).append("|");
