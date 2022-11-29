@@ -39,18 +39,18 @@ public class LoggingServiceImpl implements LoggingService {
     @Value("${logs.system-code:N/A}")
     String appSystemCode;
 
-    @Value("${logs.kpi-logs.enabled:true}")
-    Boolean enabled;
+    @Value("${logs.tracing-logs.enabled:true}")
+    Boolean tracingLogEnabled;
 
     private static final String IP_PORT_SERVICE = getIpAddressAndPort_q();
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggingServiceImpl.class);
-    private static final Logger KPI_LOGGER = LoggerFactory.getLogger(LoggingServiceImpl.class);
+    private static final Logger KPI_LOGGER = LoggerFactory.getLogger("KPI_LOG");
 
     private static final String DATE_FORMAT = "yyyy/MM/dd HH:mm:ss:SSS";
 
     @Override
     public void logRequest(HttpServletRequest httpServletRequest, Object body) {
-        if (!enabled) {
+        if (!tracingLogEnabled) {
             return;
         }
 
@@ -207,7 +207,7 @@ public class LoggingServiceImpl implements LoggingService {
 
     @Override
     public void logResponse(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object body) {
-        if (!enabled) {
+        if (!tracingLogEnabled) {
             return;
         }
 
