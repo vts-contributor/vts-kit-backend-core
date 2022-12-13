@@ -29,6 +29,8 @@ public class DateUtils {
     public static final String DATETIME_FORMAT_STR = "dd/MM/yyyy HH:mm";
     public static final String DATETIME_FORMAT_Z = "dd/MM/yyyy HH:mm z";
 
+    public static final String DATETIME_FORMAT_YYYY_MM_DD = "yyyy-MM-dd HH:mm:ss.SSS";
+
     /**
      * The Constant SECOND.
      */
@@ -735,17 +737,8 @@ public class DateUtils {
     public static Long getHouseDiff(Date d1, Date d2) {
         // in milliseconds
         Long diff = d2.getTime() - d1.getTime();
-
-        // Long diffSeconds = diff / 1000 % 60;
-        // Long diffMinutes = diff / (60 * 1000) % 60;
         Long diffHours = diff / (60 * 60 * 1000) % 24;
-        // Long diffDays = diff / (24 * 60 * 60 * 1000);
 
-        /*
-         * System.out.print(diffDays + " days, "); System.out.print(diffHours +
-         * " hours, "); System.out.print(diffMinutes + " minutes, ");
-         * System.out.print(diffSeconds + " seconds.");
-         */
         return diffHours;
     }
 
