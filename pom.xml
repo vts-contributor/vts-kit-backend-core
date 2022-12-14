@@ -14,7 +14,6 @@
     <name>vts-kit-backend-core</name>
     <description>VTS KIT BACKEND CORE</description>
     <properties>
-        <java.version>11</java.version>
         <springfox.version>3.0.0</springfox.version>
         <commons.lang.version>2.6</commons.lang.version>
         <jasypt.version>3.0.4</jasypt.version>
@@ -141,4 +140,12 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>Internal Releases</name>
+            <!--suppress UnresolvedMavenProperty -->
+            <url>${env.NEXUS_REPO_RELEASE}</url>
+        </repository>
+    </distributionManagement>
 </project>
