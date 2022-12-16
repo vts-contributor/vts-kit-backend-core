@@ -50,7 +50,7 @@ public class GlobalSecurityConfiguration {
                 .authorizeRequests()
                 .antMatchers(
                         HttpMethod.GET,
-                        "/v2/api-docs",
+                        "/v3/api-docs/**",
                         "/swagger-resources/**",
                         "/swagger-ui.html**",
                         "/webjars/**",
