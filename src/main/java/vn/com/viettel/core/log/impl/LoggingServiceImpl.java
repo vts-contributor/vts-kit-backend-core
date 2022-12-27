@@ -45,7 +45,6 @@ public class LoggingServiceImpl implements LoggingService {
     private static final String IP_PORT_SERVICE = getIpAddressAndPort_q();
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggingServiceImpl.class);
     private static final Logger KPI_LOGGER = LoggerFactory.getLogger("KPI_LOG");
-
     private static final String DATE_FORMAT = "yyyy/MM/dd HH:mm:ss:SSS";
 
     @Override
@@ -426,9 +425,6 @@ public class LoggingServiceImpl implements LoggingService {
      */
     protected String fetchClientIpAddr(HttpServletRequest request) {
         String ip = Optional.ofNullable(request.getHeader("X-FORWARDED-FOR")).orElse(request.getRemoteAddr());
-        if (ip.equals("0:0:0:0:0:0:0:1")) {
-            ip = "127.0.0.1";
-        }
         ip = ip.replace(",", "-");
         return ip;
     }
