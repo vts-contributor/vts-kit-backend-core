@@ -64,7 +64,6 @@ We use Builder Pattern for RestTemplate, below is an example of using RestTempla
 ResponseEntity<Object> result = new RestTemplateBuilder()
                                 .setConnectTimeOut(3000)
                                 .setReadTimeOut(2000)
-                                .setProxy("10.30.176.10", 6776)
                                 .setErrorHandler(new ErrorHandler() {
                                     @Override
                                     public void onError(ClientHttpResponse response) throws IOException {
@@ -88,9 +87,9 @@ String request = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/s
 			+ "<soapenv:Header/>"
 			+ "<soapenv:Body>"
 			+ "<impl:wsCpMt>"
-			+ "<User>" + "vdtc" + "</User>"
-			+ "<Password>" + "$18ac#75%@" + "</Password>"
-			+ "<CPCode>" + "VDTC" + "</CPCode>"
+			+ "<User>" + "YOUR_USER" + "</User>"
+			+ "<Password>" + "YOUR_USER" + "</Password>"
+			+ "<CPCode>" + "YOUR_CODE" + "</CPCode>"
 			+ "<RequestID>" + "1" + "</RequestID>"
 			+ "<UserID>" + "84981651642" + "</UserID>"
 			+ "<ReceiverID>" + "84981651642" + "</ReceiverID>"
